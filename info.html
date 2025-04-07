@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookHive - Your Online Book Store</title>
+  <meta name="description" content="Discover your next favorite book at BookHive - the best online bookstore with a wide selection across all genres">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Critical CSS (above-the-fold styles) */
+    :root {
+      --primary: #ffc107;
+      --secondary: #f7df09;
+      --dark: #343a40;
+      --light: #f8f9fa;
+      --success: #28a745;
+      --Kaushan-font: "Kaushan Script", cursive;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+      width: 100%;
+      background: var(--dark);
+      padding: 0 5%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .logo a {
+      color: white;
+      font-weight: 800;
+      font-family: var(--Kaushan-font);
+      font-size: 2rem;
+      text-decoration: none;
+    }
+    
+    .logo a span {
+      color: var(--secondary);
+    }
+    
+    /* Video Hero Section */
+    .video-hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      max-height: 800px;
+      overflow: hidden;
+    }
+    
+    .video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0 10%;
+      color: white;
+    }
+    
+    .video-content {
+      max-width: 600px;
+    }
+    
+    .video-content h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .video-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+    
+    .video-controls {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 15px;
+    }
+    
+    .video-control-btn {
+      background: rgba(255, 255, 255, 0.7);
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .video-control-btn:hover {
+      background: rgba(255, 255, 255, 0.9);
+      transform: scale(1.1);
+    }
+    
+    .video-control-btn i {
+      font-size: 1.2rem;
+    }
+  </style>
+  <!-- Defer non-critical CSS -->
+  <link rel="stylesheet" href="bookhive.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="bookhive.css"></noscript>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo"><a href="book.html">Book<span>Hive</span></a></div>
+    
+    <nav class="main-nav">
+      <ul>
+        <li><a href="book.html" class="under">HOME</a></li>
+        <li><a href="shop.html" class="under">SHOP</a></li>
+        <li class="categories-dropdown">
+          <a href="#" class="under">CATEGORIES <i class="fas fa-chevron-down"></i></a>
+          <div class="dropdown-content">
+            <a href="category.html?type=fiction">Fiction</a>
+            <a href="category.html?type=nonfiction">Non-Fiction</a>
+            <a href="category.html?type=scifi">Science Fiction</a>
+            <a href="category.html?type=fantasy">Fantasy</a>
+            <a href="category.html?type=mystery">Mystery</a>
+            <a href="category.html?type=romance">Romance</a>
+          </div>
+        </li>
+        <li><a href="reviews.html" class="under">REVIEWS</a></li>
+        <li><a href="login.html" class="under">LOGIN</a></li>
+        <li><a href="signup.html" class="under">SIGN UP</a></li>
+        <li>
+          <button class="cart-link" aria-label="Shopping cart">
+            CART (<span id="cart-count">0</span>) <i class="fas fa-shopping-cart"></i>
+          </button>
+        </li>
+      </ul>
+    </nav>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    
+    <div class="search">
+      <form role="search">
+        <input type="search" placeholder="Search books..." id="search-input" aria-label="Search books">
+        <button type="submit" aria-label="Search">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+    </div>
+  </header>
+
+  <!-- Video Hero Section -->
+  <section class="video-hero" aria-label="Bookstore video presentation">
+    <video class="video-background" autoplay muted loop playsinline>
+      <!-- Provide multiple sources for better browser compatibility -->
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-stack-of-books-on-a-shelf-1580-large.mp4" type="video/mp4">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-stack-of-books-on-a-shelf-1580-large.webm" type="video/webm">
+      Your browser does not support the video tag.
+    </video>
+    
+    <div class="video-overlay">
+      <div class="video-content">
+        <h2>Discover Your Next Favorite Book</h2>
+        <p>Explore our vast collection of books across all genres and find your perfect read today.</p>
+        <a href="shop.html" class="btn">Browse Collection</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Section -->
+  <main>
+    <section class="category-section" aria-labelledby="featured-books-heading">
+      <div class="category-nav" role="tablist">
+        <button class="category-btn active" data-category="all" role="tab">All Books</button>
+        <button class="category-btn" data-category="fiction" role="tab">Fiction</button>
+        <button class="category-btn" data-category="fantasy" role="tab">Fantasy</button>
+        <button class="category-btn" data-category="mystery" role="tab">Mystery</button>
+      </div>
+      
+      <div class="featured-books">
+        <h2 id="featured-books-heading" class="section-title">Featured Books</h2>
+        <div class="book-grid" id="book-container" role="list">
+          <!-- Books loaded dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter" aria-labelledby="newsletter-heading">
+      <div class="newsletter-container">
+        <h2 id="newsletter-heading">Subscribe to Our Newsletter</h2>
+        <p>Get the latest updates on new releases, special offers, and more</p>
+        <form class="newsletter-form">
+          <label for="newsletter-email" class="sr-only">Email address</label>
+          <input type="email" id="newsletter-email" placeholder="Enter your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-brand">
+      <h2>Book<span>Hive</span></h2>
+    </div>
+    
+    <div class="footer-links">
+      <div class="footer-column">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="bestsellers.html">Best Sellers</a></li>
+          <li><a href="new-releases.html">New Releases</a></li>
+          <li><a href="deals.html">Deals</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="help.html">Help Center</a></li>
+          <li><a href="shipping.html">Shipping Info</a></li>
+          <li><a href="returns.html">Returns</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-social">
+      <h3>Connect with us</h3>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    
+    <div class="footer-copyright">
+      <p>Copyright © <span>BookHive</span> 2023</p>
+    </div>
+  </footer>
+
+  <!-- Load scripts efficiently -->
+  <script>
+    // Load non-critical JS after page loads
+    function loadScript(src) {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.async = true;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.body.appendChild(script);
+      });
+    }
+    
+    window.addEventListener('load', function() {
+      // Initialize video controls
+      
+      // Load remaining scripts
+      loadScript('https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js')
+        .then(() => loadScript('bookhive.js'))
+        .catch(err => console.error('Script loading failed:', err));
+    });
+  </script>
+</body>
+</html>

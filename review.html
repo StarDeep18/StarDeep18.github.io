@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="review.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@300;400;500;600;700&display=swap">
+    <title>Customer Reviews - BookHive</title>
+    <style>
+        
+        .nav-menu .active {
+            display: block;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            flex-direction: row;
+            background-color: #2c2d33;
+            padding: 10px;
+        }
+        
+        .nav-menu li {
+            margin: 5px 18px;
+        }
+        
+        .nav-menu li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: color 0.3s;
+            padding: 8px 12px;
+            display: block;
+            border-radius: 4px;
+        }
+        
+        .nav-menu li a:hover {
+            color: #ffcc00;
+            background-color: rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">Book<span>Hive</span></div>
+            <ul class="nav-menu">
+                <li><a href="book.html">HOME</a></li>
+                <li><a href="book.html">SHOP</a></li>
+                <li><a href="book.html">CATEGORIES</a></li>
+                <li><a href="review.html">REVIEWS</a></li>
+                <li><a href="account.html">LOGIN</a></li>
+                <li><a href="signup.html">SIGN UP</a></li>
+            </ul>
+            <div class="search-cart">
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search books...">
+                    <button class="search-button">🔍</button>
+                </div>
+                <button class="cart-button">Cart(0)</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-title">
+        <div class="container">
+            <h1>Customer Reviews</h1>
+            <p>Read what other readers are saying about their favorite books</p>
+        </div>
+    </section>
+
+    <section class="reviews-section">
+        <div class="container">
+            <div class="add-review">
+                <h2>Share Your Thoughts</h2>
+                <form id="review-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="book-title">Book Title</label>
+                        <input type="text" class="form-control" id="book-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Rating</label>
+                        <div class="star-rating">
+                            <span class="star" data-rating="1">★</span>
+                            <span class="star" data-rating="2">★</span>
+                            <span class="star" data-rating="3">★</span>
+                            <span class="star" data-rating="4">★</span>
+                            <span class="star" data-rating="5">★</span>
+                        </div>
+                        <input type="hidden" id="rating-value" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="review">Your Review</label>
+                        <textarea class="form-control" id="review" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Submit Review</button>
+                </form>
+            </div>
+
+            <h2 style="margin-bottom: 20px;">Recent Reviews</h2>
+            
+            <div class="review">
+                <div class="review-header">
+                    <div>
+                        <span class="reviewer-name">Sarah Johnson</span> on 
+                        <span class="book-title">The hobbit</span>
+                    </div>
+                    <div class="rating">★★★★★</div>
+                </div>
+                <div class="review-date">March 28, 2025</div>
+                <p class="review-content">
+                    Absolutely thrilling from start to finish! The Hobbit had me on the edge of my seat with its unexpected twists and brilliant character development. I couldn't put it down and finished it in just two days. Definitely one of the best adventures I've read in years.
+                </p>
+            </div>
+
+            <div class="review">
+                <div class="review-header">
+                    <div>
+                        <span class="reviewer-name">Michael Chen</span> on 
+                        <span class="book-title">Why On Earth</span>
+                    </div>
+                    <div class="rating">★★★★★</div>
+                </div>
+                <div class="review-date">March 25, 2025</div>
+                <p class="review-content">
+                     Rosiee Thor does it again! Why On Earth combines rigorous scientific concepts with a compelling narrative that keeps you invested throughout. The protagonist's journey is both intellectually stimulating and emotionally rewarding. If you enjoyed The Martian, you'll love this even more.
+                </p>
+            </div>
+
+            <div class="review">
+                <div class="review-header">
+                    <div>
+                        <span class="reviewer-name">Amanda Torres</span> on 
+                        <span class="book-title">Rebel Witch</span>
+                    </div>
+                    <div class="rating">★★★★☆</div>
+                </div>
+                <div class="review-date">March 20, 2025</div>
+                <p class="review-content">
+                    Kristen Ciccarelli's writing style is absolutely beautiful. Rebel Witch reimagines Greek mythology in a way that feels fresh and feminist. The character development is masterful, and I found myself fully immersed in Rebel Witch's world. My only criticism is that some parts in the middle felt a bit slow, but overall it's a remarkable achievement.
+                </p>
+            </div>
+
+            <div class="review">
+                <div class="review-header">
+                    <div>
+                        <span class="reviewer-name">James Wilson</span> on 
+                        <span class="book-title">Heart Of Darkness</span>
+                    </div>
+                    <div class="rating">★★★★★</div>
+                </div>
+                <div class="review-date">March 18, 2025</div>
+                <p class="review-content">
+                    This memoir is powerful and unforgettable. Joseph Conrad's journey from an isolated childhood without formal education to earning a PhD from Cambridge is both heartbreaking and inspiring. Her resilience in the face of adversity makes this one of the most impactful books I've read in recent years.
+                </p>
+            </div>
+
+            <div class="review">
+                <div class="review-header">
+                    <div>
+                        <span class="reviewer-name">Emily Rodriguez</span> on 
+                        <span class="book-title">The Dark mirror</span>
+                    </div>
+                    <div class="rating">★★★☆☆</div>
+                </div>
+                <div class="review-date">March 15, 2025</div>
+                <p class="review-content">
+                    Samantha Shannon's depiction of the Dust Bowl era is vivid and meticulously researched. While the historical elements are fascinating, I found the pacing slow at times, and some characters seemed one-dimensional. Still, it's worth reading for the powerful portrayal of resilience during one of America's darkest periods.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script src="review.js">
+    </script>
+</body>
+</html>
